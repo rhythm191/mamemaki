@@ -1,19 +1,20 @@
 (function () {
   if (document.getElementById("mamemaki-wrapper") !== null) {
+    exitMamemakiMode();
     return;
   }
 
   // 豆まきの土台を表示
-  const wapper = document.createElement("div");
-  wapper.id = "mamemaki-wrapper";
-  wapper.style.position = "fixed";
-  wapper.style.left = 0;
-  wapper.style.top = 0;
-  wapper.style.width = "100vw";
-  wapper.style.height = "100vh";
-  wapper.style.margin = 0;
-  wapper.style.padding = 0;
-  wapper.style.zIndex = 2323;
+  const wrapper = document.createElement("div");
+  wrapper.id = "mamemaki-wrapper";
+  wrapper.style.position = "fixed";
+  wrapper.style.left = 0;
+  wrapper.style.top = 0;
+  wrapper.style.width = "100vw";
+  wrapper.style.height = "100vh";
+  wrapper.style.margin = 0;
+  wrapper.style.padding = 0;
+  wrapper.style.zIndex = 2323;
 
   // メッセージを表示
   const message = document.createElement("p");
@@ -28,10 +29,10 @@
   message.style.background = "#fff";
   message.style.font = `16px sans-serif;`;
 
-  wapper.append(message);
+  wrapper.append(message);
 
   // クリック時に豆まきをする
-  wapper.addEventListener("click", function (event) {
+  wrapper.addEventListener("click", function (event) {
     var soyX = event.pageX; //X座標
     var soyY = event.pageY; //Y座標
 
@@ -43,8 +44,25 @@
     soyImg.style.width = "20px";
     soyImg.style.height = "20px";
 
-    wapper.append(soyImg);
+    wrapper.append(soyImg);
   });
 
-  document.querySelector("body").append(wapper);
+  document.querySelector("body").append(wrapper);
+
+  window.addEventListener("keydown", captureEscapeEvent);
 })();
+
+function captureEscapeEvent(event) {
+  if (event.key === "Escape") {
+    exitMamemakiMode();
+  }
+  window.removeEventListener("keydown", captureEscapeEvent);
+}
+
+function exitMamemakiMode() {
+  const wrapper = document.getElementById("mamemaki-wrapper");
+
+  if (wrapper !== null) {
+    wrapper.remove();
+  }
+}
