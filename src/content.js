@@ -1,8 +1,19 @@
 (function () {
-  const mamemakiMessage = document.getElementById("mamemaki-message");
-  if (mamemakiMessage !== null) {
+  if (document.getElementById("mamemaki-wrapper") !== null) {
     return;
   }
+
+  // 豆まきの土台を表示
+  const wapper = document.createElement("div");
+  wapper.id = "mamemaki-wrapper";
+  wapper.style.position = "fixed";
+  wapper.style.left = 0;
+  wapper.style.top = 0;
+  wapper.style.width = "100vw";
+  wapper.style.height = "100vh";
+  wapper.style.margin = 0;
+  wapper.style.padding = 0;
+  wapper.style.zIndex = 2323;
 
   // メッセージを表示
   const message = document.createElement("p");
@@ -16,31 +27,24 @@
   message.style.border = "1px solid #000";
   message.style.background = "#fff";
   message.style.font = `16px sans-serif;`;
-  message.style.zIndex = 2300;
 
-  document.querySelector("body").append(message);
+  wapper.append(message);
+
+  // クリック時に豆まきをする
+  wapper.addEventListener("click", function (event) {
+    var soyX = event.pageX; //X座標
+    var soyY = event.pageY; //Y座標
+
+    let soyImg = document.createElement("img");
+    soyImg.src = chrome.runtime.getURL(`images/soy.png`);
+    soyImg.style.position = "absolute";
+    soyImg.style.left = `${soyX}px`;
+    soyImg.style.top = `${soyY}px`;
+    soyImg.style.width = "20px";
+    soyImg.style.height = "20px";
+
+    wapper.append(soyImg);
+  });
+
+  document.querySelector("body").append(wapper);
 })();
-
-document.body.addEventListener("click", function (event) {
-  //座標を取得する
-  var soyX = event.pageX; //X座標
-  var soyY = event.pageY; //Y座標
-
-  console.log(soyX + " " + soyY + " ");
-
-  let soyImg = document.createElement("img");
-  soyImg.src = chrome.runtime.getURL(`images/soy.png`);
-  soyImg.style.position = "absolute";
-  soyImg.style.left = `${soyX}px`;
-  soyImg.style.top = `${soyY}px`;
-  soyImg.style.width = "20px";
-  soyImg.style.height = "20px";
-
-  soyImg.addEventListener("click", handleHello);
-
-  document.querySelector("body").append(soyImg);
-});
-
-function handleHello() {
-  window.alert("hello soy");
-}
