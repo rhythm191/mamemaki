@@ -1,0 +1,13 @@
+{
+  "name": "mamemaki",
+  "version": "0.1.0",
+  "description": "mamemaki on chrome",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [
+    "chrome",
+    "extension"
+  ],
+  "author": "rhythm191",
+  "license": "MIT"
+}
