@@ -4,7 +4,6 @@
   "version": "0.1",
   "description": "mamemaki on chrome",
   "permissions": ["activeTab", "scripting"],
-  "host_permissions": ["<all_urls>"],
   "action": {
     "default_icon": {
       "128": "images/128.png"
