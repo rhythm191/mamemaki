@@ -14,6 +14,7 @@
   wrapper.style.height = "100vh";
   wrapper.style.margin = 0;
   wrapper.style.padding = 0;
+  wrapper.style.cursor = "crosshair";
   wrapper.style.zIndex = 2323;
 
   // メッセージを表示
