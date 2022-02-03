@@ -12,7 +12,7 @@
   },
   "web_accessible_resources": [
     {
-      "resources": ["images/soy.png"],
+      "resources": ["images/soy.png", "images/effect.png"],
       "matches": ["<all_urls>"]
     }
   ],

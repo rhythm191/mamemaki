@@ -64,6 +64,22 @@
     );
 
     wrapper.append(soyImg);
+
+    const effectImg = document.createElement("img");
+    effectImg.src = chrome.runtime.getURL(`images/effect.png`);
+    effectImg.style.position = "absolute";
+    effectImg.style.left = `${soyX - 32}px`;
+    effectImg.style.top = `${soyY - 32}px`;
+    effectImg.style.width = "64px";
+    effectImg.style.height = "64px";
+    effectImg.style.transformOrigin = "center";
+
+    effectImg.animate(
+      { opacity: [1, 0] },
+      { delay: 300, duration: 100, fill: "forwards" }
+    );
+
+    wrapper.append(effectImg);
   });
 
   document.querySelector("body").append(wrapper);
