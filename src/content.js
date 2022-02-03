@@ -43,6 +43,25 @@
     soyImg.style.top = `${soyY}px`;
     soyImg.style.width = "20px";
     soyImg.style.height = "20px";
+    soyImg.style.transformOrigin = "center";
+
+    soyImg.animate(
+      [
+        { transform: "translate(0, 300px)", offest: 0 },
+        {
+          transform: " translate(0, 0) rotate(45deg)",
+          opacity: 1,
+          offest: 0.9,
+          easing: "cubic-bezier(0.34, 1.56, 0.64, 1)",
+        },
+        {
+          opacity: 0,
+          offest: 1,
+          easing: "cubic-bezier(0.34, 1.56, 0.64, 1)",
+        },
+      ],
+      { duration: 240, fill: "forwards" }
+    );
 
     wrapper.append(soyImg);
   });
