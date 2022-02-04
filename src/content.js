@@ -34,12 +34,12 @@
 
   // クリック時に豆まきをする
   wrapper.addEventListener("click", function (event) {
-    var soyX = event.pageX; //X座標
-    var soyY = event.pageY; //Y座標
+    var soyX = event.offsetX; //X座標
+    var soyY = event.offsetY; //Y座標
 
     let soyImg = document.createElement("img");
     soyImg.src = chrome.runtime.getURL(`images/soy.png`);
-    soyImg.style.position = "absolute";
+    soyImg.style.position = "fixed";
     soyImg.style.left = `${soyX}px`;
     soyImg.style.top = `${soyY}px`;
     soyImg.style.width = "20px";
