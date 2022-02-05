@@ -1,8 +1,16 @@
 {
   "name": "mamemaki",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "description": "mamemaki on chrome",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rhythm191/mamemaki.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rhythm191/mamemaki/issues"
+  },
+  "homepage": "https://github.com/rhythm191/mamemaki#readme",
   "scripts": {},
   "keywords": [
     "chrome",
